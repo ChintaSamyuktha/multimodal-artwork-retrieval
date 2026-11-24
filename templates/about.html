@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block title %}About{% endblock %}{% block content %}
+<p class="eyebrow">ABOUT THE PROJECT</p><h1>Art discovery across modalities.</h1><div class="prose">
+<p>Images and descriptions can be matched with pretrained CLIP. Whisper turns speech into text before retrieval. The app also provides clearly labelled TF-IDF and pixel baselines for comparison.</p>
+<h3>Number references</h3><p>Artwork numbers use a project-defined convention: sort artwork filenames case-insensitively and number them from one. This convention has not been verified against the dataset creator's intended audio alignment. Direct lookup is separate from speech recognition.</p>
+<h3>Evaluation</h3><p>See the Evaluation page for measured results. Caption benchmarks describe performance on this collection, not general accuracy on unseen collections. Similarity scores are not probabilities. Speech Word Error Rate requires independently supplied reference transcripts.</p>
+<h3>Preparation</h3><p>Models are downloaded explicitly, and image indexes are saved to disk before serving searches. Restarting the server reuses these indexes. Changing image files invalidates the relevant index.</p>
+</div>{% endblock %}

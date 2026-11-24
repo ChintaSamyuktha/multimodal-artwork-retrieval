@@ -1,0 +1,10 @@
+<label for="mode" class="form-label mt-3">Search method</label>
+<select id="mode" name="mode" class="form-select">
+<option value="clip" {% if mode == 'clip' %}selected{% endif %}>CLIP semantic retrieval</option>
+<option value="fast" {% if mode == 'fast' %}selected{% endif %}>{{ 'Pixel feature baseline' if search_kind == 'image' else 'TF-IDF description baseline' }}</option>
+{% if search_kind != 'image' %}
+<option value="bm25" {% if mode == 'bm25' %}selected{% endif %}>BM25 caption retrieval</option>
+<option value="lsa" {% if mode == 'lsa' %}selected{% endif %}>LSA latent semantic retrieval</option>
+<option value="minilm" {% if mode == 'minilm' %}selected{% endif %}>MiniLM sentence embedding retrieval</option>
+{% endif %}
+</select>

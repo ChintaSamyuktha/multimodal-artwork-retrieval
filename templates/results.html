@@ -1,0 +1,9 @@
+{% if elapsed is defined and elapsed is not none %}<p class="caption mt-3">Query processing: {{ '%.3f'|format(elapsed) }} seconds{% if results and results[0].match_type == 'Number mapping' %} · Number lookup{% elif mode is defined %} · {{ {'clip':'CLIP', 'fast':'Baseline', 'bm25':'BM25', 'lsa':'LSA', 'minilm':'MiniLM'}.get(mode, mode) }}{% endif %}. This is an individual query time, not a benchmark average.</p>{% endif %}
+{% if results %}<section class="results mt-5"><p class="eyebrow">YOUR MATCHES</p>
+<p class="caption">Scores rank matches; they are not accuracy percentages. BM25 uses relevance scores, while the other retrieval methods use cosine similarity. Number lookups have no similarity score.</p>
+<div class="row g-4">{% for item in results %}<div class="col-sm-6 col-lg-4"><article class="art-card">
+<img src="{{ url_for('artwork', filename=item.filename) }}" alt="Artwork {{ item.filename }}" loading="lazy">
+<div class="p-3"><strong>{{ item.filename }}</strong>
+<div class="caption">{{ item.match_type or 'Cosine similarity' }}{% if item.score is not none %}: <span class="score">{{ '%.3f'|format(item.score) }}</span>{% endif %}</div>
+{% for desc in item.descriptions[:3] %}<p class="caption">{{ desc }}</p>{% endfor %}
+</div></article></div>{% endfor %}</div></section>{% endif %}

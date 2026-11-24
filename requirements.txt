@@ -1,0 +1,13 @@
+Flask>=3.0,<4
+Pillow>=10.0
+numpy>=1.26
+torch>=2.6
+transformers>=4.40
+accelerate>=0.28
+scikit-learn>=1.4
+python-dotenv>=1.0
+openai-whisper>=20231117
+av>=12
+filelock>=3.13
+truststore>=0.10
+joblib>=1.3

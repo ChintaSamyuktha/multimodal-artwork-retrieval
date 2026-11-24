@@ -1,0 +1,24 @@
+{% extends 'base.html' %}{% block title %}Audio search{% endblock %}
+{% block content %}<p class="eyebrow">VOICE SEARCH</p><h1>Say what you remember.</h1>
+<p class="text-muted">Whisper transcribes the audio content. Descriptions go to text search; spoken artwork numbers go to the mapping.</p>
+<form id="audio-form" method="post" action="{{ url_for('audio_page') }}" enctype="multipart/form-data" class="search-box" data-max-seconds="{{ max_seconds }}">
+<label for="audio-file" class="form-label">Upload or record speech (up to {{ max_seconds }} seconds)</label>
+<input id="audio-file" class="form-control" type="file" name="audio" accept="audio/*,.webm" required>
+<div class="d-flex gap-2 mt-3">
+<button type="button" id="record-start" class="btn btn-outline-dark">Start recording</button>
+<button type="button" id="record-stop" class="btn btn-outline-dark" disabled>Stop recording</button>
+</div>
+<p id="record-status" class="caption" role="status" aria-live="polite">Microphone recording works on localhost or HTTPS with browser permission.</p>
+<audio id="record-preview" class="mt-2" controls hidden></audio>
+{% set search_kind='text' %}{% include 'mode_select.html' %}
+<button id="audio-submit" type="submit" class="btn btn-coral mt-3">Transcribe and find →</button>
+</form>
+{% if transcript %}<div class="transcript mt-4"><span class="eyebrow">WHISPER TRANSCRIPT</span><p>“{{ transcript }}”</p><p class="caption">Check the recognized words, especially long artwork numbers. If a number was misheard, use the explicit lookup below.</p></div>{% endif %}
+{% if lookup %}<p class="mt-4">Result from direct number lookup. No speech transcription was performed.</p>{% endif %}
+{% include 'results.html' %}
+<section class="search-box mt-5"><h2 class="h4">Look up an artwork number</h2>
+<p class="caption">This uses the generated sorted-filename mapping. The source dataset's intended audio-image alignment has not been verified.</p>
+<form method="post" action="{{ url_for('lookup_page') }}"><label class="form-label" for="number">Artwork number</label>
+<input id="number" class="form-control" name="number" type="number" min="1" required>
+<button class="btn btn-outline-dark mt-3" type="submit">Look up number</button></form></section>
+{% endblock %}

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#263238"/>
+    </marker>
+    <style>
+      .title{font:700 28px Arial,sans-serif;fill:#18212b}.label{font:700 18px Arial,sans-serif;fill:#18212b}.small{font:16px Arial,sans-serif;fill:#33404d}.tiny{font:14px Arial,sans-serif;fill:#52606d}.box{stroke:#263238;stroke-width:2;rx:12}.arrow{stroke:#263238;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1400" height="980" fill="#ffffff"/>
+  <text x="700" y="48" text-anchor="middle" class="title">Multimodal Artistic Recognition and Retrieval Architecture</text>
+
+  <rect x="460" y="78" width="480" height="70" class="box" fill="#dcecff"/>
+  <text x="700" y="108" text-anchor="middle" class="label">Flask Web Interface</text>
+  <text x="700" y="132" text-anchor="middle" class="small">Receives input and displays ranked artwork results</text>
+
+  <path d="M700 148 L700 178" class="arrow"/>
+  <rect x="70" y="185" width="380" height="145" class="box" fill="#fff3df"/>
+  <rect x="510" y="185" width="380" height="145" class="box" fill="#fff3df"/>
+  <rect x="950" y="185" width="380" height="145" class="box" fill="#fff3df"/>
+  <text x="260" y="218" text-anchor="middle" class="label">Image Upload</text>
+  <text x="260" y="252" text-anchor="middle" class="small">Pillow validation</text>
+  <text x="260" y="281" text-anchor="middle" class="small">CLIP image embedding</text>
+  <text x="700" y="218" text-anchor="middle" class="label">Text Query</text>
+  <text x="700" y="252" text-anchor="middle" class="small">CLIP text embedding</text>
+  <text x="700" y="281" text-anchor="middle" class="small">or fast TF-IDF representation</text>
+  <text x="1140" y="218" text-anchor="middle" class="label">Audio Upload</text>
+  <text x="1140" y="252" text-anchor="middle" class="small">Whisper speech-to-text</text>
+  <text x="1140" y="281" text-anchor="middle" class="small">Recognized text / image reference</text>
+
+  <path d="M260 330 L260 380 L700 380" class="arrow"/>
+  <path d="M700 330 L700 380" class="arrow"/>
+  <path d="M1140 330 L1140 380 L700 380" class="arrow"/>
+
+  <rect x="390" y="395" width="620" height="105" class="box" fill="#dff1f5"/>
+  <text x="700" y="430" text-anchor="middle" class="label">Retrieval Engine</text>
+  <text x="700" y="460" text-anchor="middle" class="small">CLIP / TF-IDF + cosine similarity ranking</text>
+  <text x="700" y="483" text-anchor="middle" class="tiny">Ranks the most relevant artworks</text>
+
+  <path d="M700 500 L700 540" class="arrow"/>
+  <rect x="70" y="555" width="380" height="105" class="box" fill="#f0e6ff"/>
+  <rect x="510" y="555" width="380" height="105" class="box" fill="#f0e6ff"/>
+  <rect x="950" y="555" width="380" height="105" class="box" fill="#f0e6ff"/>
+  <text x="260" y="592" text-anchor="middle" class="label">Artwork Image Index</text>
+  <text x="260" y="622" text-anchor="middle" class="small">3,606 JPG artwork files</text>
+  <text x="700" y="592" text-anchor="middle" class="label">JSON Text Descriptions</text>
+  <text x="700" y="622" text-anchor="middle" class="small">Multiple descriptions per image</text>
+  <text x="1140" y="592" text-anchor="middle" class="label">Image Number Mapping</text>
+  <text x="1140" y="622" text-anchor="middle" class="small">Audio reference to artwork file</text>
+  <path d="M260 555 L260 500" class="arrow"/>
+  <path d="M700 555 L700 500" class="arrow"/>
+  <path d="M1140 555 L1140 500" class="arrow"/>
+
+  <path d="M700 660 L700 700" class="arrow"/>
+  <rect x="350" y="715" width="700" height="105" class="box" fill="#eeeeee"/>
+  <text x="700" y="752" text-anchor="middle" class="label">Ranked Artwork Results</text>
+  <text x="700" y="783" text-anchor="middle" class="small">Artwork image · filename · descriptions · similarity score</text>
+  <path d="M700 820 L700 855" class="arrow"/>
+  <rect x="460" y="870" width="480" height="65" class="box" fill="#d9efd1"/>
+  <text x="700" y="910" text-anchor="middle" class="label">Results displayed to the user</text>
+</svg>

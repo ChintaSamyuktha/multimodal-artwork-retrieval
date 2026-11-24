@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block title %}Text search{% endblock %}
+{% block content %}<p class="eyebrow">TEXT SEARCH</p><h1>Describe a work.</h1>
+<p class="text-muted">Search with CLIP, TF-IDF, BM25, LSA or MiniLM. CLIP matches artwork images; the other methods match artwork descriptions.</p>
+<form method="post" class="search-box">
+<label for="query" class="form-label">Artwork description</label>
+<textarea id="query" class="form-control" name="query" maxlength="2000" rows="3" placeholder="A cow with a farmer standing in a field" required>{{ query }}</textarea>
+{% set search_kind='text' %}{% include 'mode_select.html' %}
+<button type="submit" class="btn btn-coral mt-3">Find artwork →</button>
+<p class="caption mt-3">Choose a prepared method. Visit <a href="{{ url_for('status_page') }}">Setup</a> to check readiness.</p>
+</form>{% include 'results.html' %}{% endblock %}

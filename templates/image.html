@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block title %}Image search{% endblock %}
+{% block content %}<p class="eyebrow">IMAGE SEARCH</p><h1>Show us what you mean.</h1>
+<p class="text-muted">CLIP finds visual meaning; the pixel baseline compares colour and rough layout.</p>
+<form method="post" enctype="multipart/form-data" class="search-box">
+<label for="image" class="form-label">Artwork image</label>
+<input id="image" class="form-control" type="file" name="image" accept="image/jpeg,image/png,image/webp" required>
+{% set search_kind='image' %}{% include 'mode_select.html' %}
+<button type="submit" class="btn btn-coral mt-3">Search by image →</button>
+</form>{% include 'results.html' %}{% endblock %}

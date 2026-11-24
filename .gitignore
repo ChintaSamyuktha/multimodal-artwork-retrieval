@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+instance/
+artifacts/
+*.pt
+*.bin
+*.safetensors
+.DS_Store
+.model-cache/
+dataset/images/
+dataset/audio/
+tmp/

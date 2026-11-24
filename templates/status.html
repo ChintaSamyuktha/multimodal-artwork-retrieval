@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block title %}Setup{% endblock %}{% block content %}
+<p class="eyebrow">APPLICATION READINESS</p><h1>Ready to search?</h1><p>{{ status.artworks }} artworks in the collection.</p>
+<div class="search-box"><ul>{% for name,ready in status.indexes.items() %}<li>{{ name }} index: <strong>{{ 'Ready' if ready else 'Needs preparation' }}</strong></li>{% endfor %}
+<li>Whisper {{ status.speech_model }}: <strong>{{ 'Ready' if status.speech_ready else 'Needs preparation' }}</strong></li></ul>
+<p>Run these commands once in the project terminal:</p><pre>python scripts/prepare_models.py
+python scripts/build_index.py --mode all</pre>
+<p class="caption">Preparation downloads model weights and builds the collection indexes. Search requests do not download models or rebuild all image features.</p></div>
+{% endblock %}
